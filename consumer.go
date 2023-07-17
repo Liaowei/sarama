@@ -942,6 +942,7 @@ func (bc *brokerConsumer) subscriptionConsumer() {
 		// if there isn't response, it means that not fetch was made
 		// so we don't need to handle any response
 		if response == nil {
+			time.Sleep(partitionConsumersBatchTimeout)
 			continue
 		}
 
